@@ -16,8 +16,8 @@ public class SparkTrialApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SparkTrialApplication.class, args);
-		SparkConf conf = new SparkConf().setMaster("local").setAppName("manoj").set("spark.cassandra.connection.host",
-				"192.168.10.101");
+		SparkConf conf = new SparkConf().setMaster("local").setAppName("useSomeAppName").set("spark.cassandra.connection.host",
+				"giveOneOfTheCassandraNodes");
 		sc = new JavaSparkContext(conf);
 		CassandraTableScanJavaRDD<CassandraRow> rdd = CassandraJavaUtil.javaFunctions(sc).cassandraTable("mykeyspace", "test");
 		System.err.println(rdd.cassandraCount());
